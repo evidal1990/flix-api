@@ -127,3 +127,7 @@ dmypy.json
 # Windows
 Thumbs.db
 ehthumbs.db
+
+# Banco de dados
+
+db.sqlite3
