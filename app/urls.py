@@ -17,9 +17,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from genres.views import genre_view
+from genres.views import genre_create, genre_list, genre_detail
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("genres/", genre_view, name="genre-list"),
+    path("genres/create", genre_create, name="genre-create"),
+    path("genres/list", genre_list, name="genre-list"),
+    path("genres/<int:pk>/", genre_detail, name="genre-detail"),
 ]
