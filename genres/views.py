@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404
 import json
 
 
-def genre_list(request):
+def list(request):
     if request.method == "GET":
         genres = Genre.objects.all()
         data = [{"id": genre.id, "name": genre.name} for genre in genres]
@@ -13,7 +13,7 @@ def genre_list(request):
 
 
 @csrf_exempt
-def genre_create(request):
+def create(request):
     if request.method == "POST":
         data = json.loads(request.body.decode("utf-8"))
         new_genre = Genre(name=data["name"])
@@ -22,7 +22,17 @@ def genre_create(request):
 
 
 @csrf_exempt
-def genre_detail(request, pk):
+def detail(request, pk):
     if request.method == "GET":
         genre = get_object_or_404(Genre, pk=pk)
+        return JsonResponse({"id": genre.id, "name": genre.name})
+
+
+@csrf_exempt
+def update(request, pk):
+    if request.method == "PUT":
+        data = json.loads(request.body.decode("utf-8"))
+        genre = get_object_or_404(Genre, pk=pk)
+        genre.name = data["name"]
+        genre.save()
         return JsonResponse({"id": genre.id, "name": genre.name})
