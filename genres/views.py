@@ -25,7 +25,7 @@ def create(request):
 def detail(request, pk):
     if request.method == "GET":
         genre = get_object_or_404(Genre, pk=pk)
-        return JsonResponse({"id": genre.id, "name": genre.name})
+        return JsonResponse({"id": genre.id, "name": genre.name}, status=200)
 
 
 @csrf_exempt
@@ -35,4 +35,12 @@ def update(request, pk):
         genre = get_object_or_404(Genre, pk=pk)
         genre.name = data["name"]
         genre.save()
-        return JsonResponse({"id": genre.id, "name": genre.name})
+        return JsonResponse({"id": genre.id, "name": genre.name}, status=200)
+
+
+@csrf_exempt
+def delete(request, pk):
+    if request.method == "DELETE":
+        genre = get_object_or_404(Genre, pk=pk)
+        genre.delete()
+        return JsonResponse({"message": "Gênero excluído com sucesso"}, status=204)
