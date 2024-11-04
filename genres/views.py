@@ -1,25 +1,15 @@
-from django.http import JsonResponse
 from genres.models import Genre
+from genres.serializers import GenreSerializers
+from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import get_object_or_404
 from rest_framework import generics
 import json
 
 
-def list(request):
-    if request.method == "GET":
-        genres = Genre.objects.all()
-        data = [{"id": genre.id, "name": genre.name} for genre in genres]
-        return JsonResponse(data, safe=False)
-
-
-@csrf_exempt
-def create(request):
-    if request.method == "POST":
-        data = json.loads(request.body.decode("utf-8"))
-        new_genre = Genre(name=data["name"])
-        new_genre.save()
-        return JsonResponse({"id": new_genre.id, "name": new_genre.name}, status=201)
+class ListCreateView(generics.ListCreateAPIView):
+	queryset = Genre.objects.all()
+	serializer_class = GenreSerializers
 
 
 @csrf_exempt
