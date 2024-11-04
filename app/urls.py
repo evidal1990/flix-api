@@ -17,14 +17,14 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from genres.views import ListCreateView, detail, update, delete
+from genres.views import ListView, CreateView, DetailView, UpdateView, DeleteView
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("genres/create", ListCreateView.as_view(), name="genre-create"),
-    path("genres/update/<int:pk>", update, name="genre-update"),
-    path("genres/delete/<int:pk>", delete, name="genre-delete"),
-    path("genres/detail/<int:pk>/", detail, name="genre-detail"),
-    path("genres/list", ListCreateView.as_view(), name="genre-list"),
+    path("genres/create", CreateView.as_view(), name="genre-create"),
+    path("genres/update/<int:pk>", UpdateView.as_view(), name="genre-update"),
+    path("genres/delete/<int:pk>", DeleteView.as_view(), name="genre-delete"),
+    path("genres/detail/<int:pk>/", DetailView.as_view, name="genre-detail"),
+    path("genres/list", ListView.as_view(), name="genre-list"),
 ]
