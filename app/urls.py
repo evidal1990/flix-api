@@ -17,14 +17,20 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from genres.views import ListView, CreateView, DetailView, UpdateView, DeleteView
+from genres.views import GenreCreateView, GenreUpdateView, GenreDeleteView, GenreDetailView, GenreListView
+from actors.views import ActorListView, ActorCreateView, ActorDetailView, ActorUpdateView, ActorDeleteView
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("genres/create", CreateView.as_view(), name="genre-create"),
-    path("genres/update/<int:pk>", UpdateView.as_view(), name="genre-update"),
-    path("genres/delete/<int:pk>", DeleteView.as_view(), name="genre-delete"),
-    path("genres/detail/<int:pk>/", DetailView.as_view, name="genre-detail"),
-    path("genres/list", ListView.as_view(), name="genre-list"),
+    path("genres/create", GenreCreateView.as_view(), name="genre-create"),
+    path("genres/update/<int:pk>", GenreUpdateView.as_view(), name="genre-update"),
+    path("genres/delete/<int:pk>", GenreDeleteView.as_view(), name="genre-delete"),
+    path("genres/detail/<int:pk>", GenreDetailView.as_view, name="genre-detail"),
+    path("genres/list", GenreListView.as_view(), name="genre-list"),
+    path("actors/create", ActorCreateView.as_view(), name="actor-create"),
+    path("actors/update/<int:pk>", ActorUpdateView.as_view(), name="actor-update"),
+    path("actors/delete/<int:pk>", ActorDeleteView.as_view(), name="actor-delete"),
+    path("actors/detail/<int:pk>", ActorDetailView.as_view(), name="actor-detail"),
+    path("actors/list", ActorListView.as_view(), name="actor-list"),
 ]

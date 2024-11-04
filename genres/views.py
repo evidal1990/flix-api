@@ -3,26 +3,26 @@ from genres.models import Genre
 from genres.serializers import GenreSerializers
 
 
-class ListView(generics.ListAPIView):
+class GenreListView(generics.ListAPIView):
     queryset = Genre.objects.all()
     serializer_class = GenreSerializers
 
 
-class CreateView(generics.CreateAPIView):
+class GenreCreateView(generics.CreateAPIView):
     queryset = Genre.objects.all()
     serializer_class = GenreSerializers
 
 
-class DetailView(generics.RetrieveAPIView):
+class GenreDetailView(generics.RetrieveAPIView):
     queryset = Genre.objects.all()
     serializer_class = GenreSerializers
 
 
-class UpdateView(generics.UpdateAPIView):
+class GenreUpdateView(generics.UpdateAPIView):
     queryset = Genre.objects.all()
     serializer_class = GenreSerializers
 
 
-class DeleteView(generics.DestroyAPIView):
+class GenreDeleteView(generics.DestroyAPIView):
     queryset = Genre.objects.all()
     serializer_class = GenreSerializers
