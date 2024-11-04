@@ -1,17 +1,17 @@
 from django.db import models
 
 NATIONALITIES = (
-    ("FR", "French"),
-    ("US", "American"),
-    ("IT", "Italian"),
-    ("JP", "Japanese"),
-    ("CH", "Chinese"),
-    ("BR", "Brazilian"),
-    ("IN", "Indian"),
-    ("DE", "German"),
-    ("ES", "Spanish"),
-    ("GB", "British"),
-    ("MX", "Mexican"),
+    ("FR", "Francês"),
+    ("US", "Americano"),
+    ("IT", "Italiano"),
+    ("JP", "Japonês"),
+    ("CH", "Chinês"),
+    ("BR", "Brasileiro"),
+    ("IN", "Indiano"),
+    ("DE", "Alemão"),
+    ("ES", "Espanhol"),
+    ("GB", "Inglês"),
+    ("MX", "Mexicano"),
 )
 
 
