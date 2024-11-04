@@ -1,24 +1,8 @@
-"""
-URL configuration for app project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-
 from django.contrib import admin
 from django.urls import path
-from genres.views import GenreCreateView, GenreUpdateView, GenreDeleteView, GenreDetailView, GenreListView
-from actors.views import ActorListView, ActorCreateView, ActorDetailView, ActorUpdateView, ActorDeleteView
+from genres.views import GenreListView, GenreUpdateView, GenreDeleteView, GenreCreateView, GenreDetailView, GenreListView
+from actors.views import ActorListView, ActorUpdateView, ActorDeleteView, ActorCreateView, ActorDetailView, ActorListView
+from movies.views import MovieListView, MovieUpdateView, MovieDeleteView, MovieCreateView, MovieDetailView, MovieListView
 
 
 urlpatterns = [
@@ -28,9 +12,16 @@ urlpatterns = [
     path("genres/delete/<int:pk>", GenreDeleteView.as_view(), name="genre-delete"),
     path("genres/detail/<int:pk>", GenreDetailView.as_view, name="genre-detail"),
     path("genres/list", GenreListView.as_view(), name="genre-list"),
+
     path("actors/create", ActorCreateView.as_view(), name="actor-create"),
     path("actors/update/<int:pk>", ActorUpdateView.as_view(), name="actor-update"),
     path("actors/delete/<int:pk>", ActorDeleteView.as_view(), name="actor-delete"),
     path("actors/detail/<int:pk>", ActorDetailView.as_view(), name="actor-detail"),
     path("actors/list", ActorListView.as_view(), name="actor-list"),
+
+    path("movies/create", MovieCreateView.as_view(), name="actor-create"),
+    path("movies/update/<int:pk>", MovieUpdateView.as_view(), name="actor-update"),
+    path("movies/delete/<int:pk>", MovieDeleteView.as_view(), name="actor-delete"),
+    path("movies/detail/<int:pk>", MovieDetailView.as_view(), name="actor-detail"),
+    path("movies/list", MovieListView.as_view(), name="actor-list"),
 ]
