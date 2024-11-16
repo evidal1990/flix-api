@@ -2,6 +2,7 @@ from rest_framework import permissions
 
 
 class ActorPermission(permissions.BasePermission):
+
     def has_permission(self, request, view):
         if request.method in permissions.SAFE_METHODS:
             return request.user.has_perm("actors.view_actor")

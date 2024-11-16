@@ -30,6 +30,7 @@ class MovieSerializers(serializers.ModelSerializer):
 
 
 class MovieStatsSerializer(serializers.Serializer):
+
     def get_movies_by_genre():
         return Movie.objects.all().values(
             "genre__name").annotate(count=Count("id"))

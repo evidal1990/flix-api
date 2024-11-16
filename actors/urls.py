@@ -3,7 +3,8 @@ from . import views
 
 
 urlpatterns = [
-    path("actors/create", views.ActorCreateView.as_view(), name="actor-create"),
+    path("actors/create",
+         views.ActorCreateView.as_view(), name="actor-create"),
     path("actors/update/<int:pk>",
          views.ActorUpdateView.as_view(), name="actor-update"),
     path("actors/delete/<int:pk>",

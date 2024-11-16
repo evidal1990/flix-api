@@ -12,7 +12,10 @@ class GlobalDefaultPermission(permissions.BasePermission):
     def __get_model_permission_codename(self, method, view):
         try:
             metadata = view.queryset.model._meta
-            return f"{metadata.app_label}.{self.__get_user_action(method)}_{metadata.model_name}"
+            app_label = metadata.app_label
+            action = self.__get_user_action(method)
+            model_name = metadata.model_name
+            return f"{app_label}.{action}_{model_name}"
         except AttributeError:
             return None
 
