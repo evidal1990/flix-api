@@ -7,35 +7,14 @@ from app.permissions import GlobalDefaultPermission
 from reviews.models import Review
 
 
-class MovieListView(generics.ListAPIView):
+class MovieListCreateView(generics.ListCreateAPIView):
 
     permission_classes = (IsAuthenticated, GlobalDefaultPermission)
     queryset = Movie.objects.all()
     serializer_class = MovieSerializers
 
 
-class MovieDetailView(generics.RetrieveAPIView):
-
-    permission_classes = (IsAuthenticated, GlobalDefaultPermission)
-    queryset = Movie.objects.all()
-    serializer_class = MovieSerializers
-
-
-class MovieCreateView(generics.CreateAPIView):
-
-    permission_classes = (IsAuthenticated, GlobalDefaultPermission)
-    queryset = Movie.objects.all()
-    serializer_class = MovieSerializers
-
-
-class MovieUpdateView(generics.UpdateAPIView):
-
-    permission_classes = (IsAuthenticated, GlobalDefaultPermission)
-    queryset = Movie.objects.all()
-    serializer_class = MovieSerializers
-
-
-class MovieDeleteView(generics.DestroyAPIView):
+class MovieRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
 
     permission_classes = (IsAuthenticated, GlobalDefaultPermission)
     queryset = Movie.objects.all()

@@ -5,35 +5,14 @@ from genres.serializers import GenreSerializers
 from app.permissions import GlobalDefaultPermission
 
 
-class GenreListView(generics.ListAPIView):
+class GenreListCreateView(generics.ListCreateAPIView):
 
     permission_classes = (IsAuthenticated, GlobalDefaultPermission)
     queryset = Genre.objects.all()
     serializer_class = GenreSerializers
 
 
-class GenreCreateView(generics.CreateAPIView):
-
-    permission_classes = (IsAuthenticated, GlobalDefaultPermission)
-    queryset = Genre.objects.all()
-    serializer_class = GenreSerializers
-
-
-class GenreDetailView(generics.RetrieveAPIView):
-
-    permission_classes = (IsAuthenticated, GlobalDefaultPermission)
-    queryset = Genre.objects.all()
-    serializer_class = GenreSerializers
-
-
-class GenreUpdateView(generics.UpdateAPIView):
-
-    permission_classes = (IsAuthenticated, GlobalDefaultPermission)
-    queryset = Genre.objects.all()
-    serializer_class = GenreSerializers
-
-
-class GenreDeleteView(generics.DestroyAPIView):
+class GenreRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
 
     permission_classes = (IsAuthenticated, GlobalDefaultPermission)
     queryset = Genre.objects.all()

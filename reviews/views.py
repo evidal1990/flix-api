@@ -5,31 +5,13 @@ from reviews.serializers import ReviewSerializer
 from app.permissions import GlobalDefaultPermission
 
 
-class ReviewListView(generics.ListAPIView):
+class ReviewListCreateView(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated, GlobalDefaultPermission)
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
 
 
-class ReviewCreateView(generics.CreateAPIView):
-    permission_classes = (IsAuthenticated, GlobalDefaultPermission)
-    queryset = Review.objects.all()
-    serializer_class = ReviewSerializer
-
-
-class ReviewDetailView(generics.RetrieveAPIView):
-    permission_classes = (IsAuthenticated, GlobalDefaultPermission)
-    queryset = Review.objects.all()
-    serializer_class = ReviewSerializer
-
-
-class ReviewUpdateView(generics.UpdateAPIView):
-    permission_classes = (IsAuthenticated, GlobalDefaultPermission)
-    queryset = Review.objects.all()
-    serializer_class = ReviewSerializer
-
-
-class ReviewDeleteView(generics.DestroyAPIView):
+class ReviewRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthenticated, GlobalDefaultPermission)
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
