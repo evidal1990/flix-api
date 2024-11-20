@@ -12,6 +12,9 @@ NATIONALITIES = (
     ("ES", "Espanhol"),
     ("GB", "Inglês"),
     ("MX", "Mexicano"),
+    ("AU", "Australiano"),
+    ("CA", "Canadense"),
+    ("IS", "Israelense"),
 )
 
 
